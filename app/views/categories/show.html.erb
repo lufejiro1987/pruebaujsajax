@@ -1,0 +1,31 @@
+
+
+
+<div class="container padding-50">
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center;">Category</h1>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>sub Categories</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @category.name %></td>
+        <td><%= @category.subcategories.present? ? @category.subcategories.pluck(:name).join(',') : '' %></td>
+        
+      </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %> | 
+<%= link_to 'Add SubCategory', add_subcategory_category_path(@category) %>
+</div>
+<br>
+
+</div>

@@ -1,0 +1,30 @@
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+  <br>
+  <div class="field">
+  <%= form.label :status %><br />
+  <%= form.label :status, "Public", :value => "public_cat"  %>
+  <%= form.radio_button :status, "public_cat", checked: form.object.public_cat? %>
+  <%= form.label :status, "Private", :value => "private_cat" %>
+  <%= form.radio_button :status, "private_cat", checked: form.object.private_cat? %>
+  </div>
+          <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

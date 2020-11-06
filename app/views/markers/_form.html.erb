@@ -1,0 +1,39 @@
+<div id="notification"></div>
+<%= form_with(model: marker, remote: true ,html: {id: "marker-form",:onsubmit => "return confirm('Are you sure?');" }) do |form| %>
+  <% if marker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+
+      <ul>
+        <% marker.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select(:categories_id, @categories.map{|category| [category.name,category.id]},{selected: form.object.present? ? form.object.categories.pluck(:id) : "",prompt: "select categories"},{ class: "form-control", :multiple => true, required: true}) %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.select(:type_id, @types.map{|type| [type.name,type.id]},{selected: form.object.type.present? ? form.object.type.id : "",prompt: "select type"},{ class: "form-control", required: true}) %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<script>
+  $('#marker_categories_id').select2({
+        multiple: true
+    });
+      $('#marker_type_id').select2();
+</script>

@@ -1,0 +1,28 @@
+
+<div class="container padding-50">
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center;">Marker</h1>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Categories</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @marker.name %></td>
+        <td><%= @marker.type.name %></td>
+        <td><%= @marker.categories.pluck(:name).join(',') %></td>
+        
+      </tr>
+  </tbody>
+</table>
+</div>
+<br>
+
+</div>

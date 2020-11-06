@@ -1,0 +1,29 @@
+
+
+
+<div class="container padding-50">
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center;">Type</h1>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @type.name %></td>
+       
+        
+      </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_type_path(@type) %> |
+<%= link_to 'Back', types_path %>
+</div>
+<br>
+
+</div>
