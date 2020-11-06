@@ -10,4 +10,4 @@ Features:
 
 ERB Graphic attached in the directory
 
-Heroku rep: https://pruebarailsujsajax.herokuapp.com/
+Heroku rep: https://pruebarailsujsajax123456.herokuapp.com/
